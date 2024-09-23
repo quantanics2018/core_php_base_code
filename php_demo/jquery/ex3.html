@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Children with Specified Class</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .box {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        .child {
+            margin: 5px;
+            padding: 5px;
+            background-color: lightblue;
+        }
+
+
+
+        /* toggle button */
+        #toggleBox {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            border: 1px solid black;
+        }
+        .active {
+            background-color: lightgreen;
+        }
+
+
+
+        /* paragraph color change */
+        p {
+            font-size: 18px;
+            margin: 20px;
+        }
+
+
+
+        /* data passed info */
+        .data-pass {
+            margin: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Children with a Specified Class</h1>
+    
+    <div class="box">
+        <div class="child">Child 1</div>
+        <div class="child">Child 2</div>
+        <div>Not a Child</div>
+    </div>
+    
+    <div class="box">
+        <div class="child">Child 3</div>
+        <div>Not a Child</div>
+    </div>
+    
+    <div class="box">
+        <div>Not a Child</div>
+    </div>
+
+    <button id="findChildren">Find Children with Class 'child'</button>
+
+
+
+    <!-- toggle button -->
+    <h1>Right Click to Toggle Background Color</h1>
+    <div id="toggleBox">Right Click Me!</div>
+
+
+
+    <!-- paragraph color change -->
+    <h1>Mouseover Event Example</h1>
+    <p>This is a paragraph. Hover over me to change my color to red!</p>
+    <p>This is another paragraph. Try hovering over this one too!</p>
+
+
+
+    <!-- data pass info -->
+    <h1>Data Passed with on() Method</h1>
+    <p data-info="Data for paragraph 1">Paragraph 1</p>
+    <p data-info="Data for paragraph 2">Paragraph 2</p>
+    <p data-info="Data for paragraph 3">Paragraph 3</p>
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('#findChildren').click(function() {
+                $('.box').each(function() {
+                    // Find children with the specified class
+                    var children = $(this).find('.child');
+                    if (children.length > 0) {
+                        alert('Found ' + children.length + ' child(ren) in this box: ' + children.map(function() {
+                            return $(this).text();
+                        }).get().join(', '));
+                    } else {
+                        alert('No children found in this box.');
+                    }
+                });
+            });
+
+
+
+            // toggle button click
+            $('#toggleBox').on('contextmenu', function(event) {
+                event.preventDefault(); // Prevent the default context menu from appearing
+                $(this).toggleClass('active'); // Toggle the 'active' class
+            });
+
+
+
+
+            // paragraph color change
+            $('p').mouseover(function() {
+                $(this).css('color', 'red'); // Change color to red on mouseover
+            }).mouseout(function() {
+                $(this).css('color', ''); // Reset color on mouseout
+            });
+
+
+
+            // data pass 
+            $('p').on('click', function(event) {
+                // Get the data passed to the event
+                var dataInfo = $(this).data('info');
+                alert('Data passed with on(): ' + dataInfo);
+            });
+        });
+
+
+
+    </script>
+</body>
+</html>

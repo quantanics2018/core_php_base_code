@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="order.xsd">
+    <customerDetails>
+        <name>John Doe</name>
+        <address>123 Main St, Springfield, IL</address>
+    </customerDetails>
+    <items>
+        <item>
+            <productID>ABC123</productID>
+            <quantity>2</quantity>
+        </item>
+        <item>
+            <productID>XYZ456</productID>
+            <quantity>1</quantity>
+        </item>
+    </items>
+    <totalCost>59.99</totalCost>
+</order>

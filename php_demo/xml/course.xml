@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml-stylesheet type="text/xsl" href="course.xsl"?> -->
+<courses>
+    <course>
+        <category>Programming</category>
+        <title>Introduction to Python</title>
+        <trainer>John Doe</trainer>
+        <year>2023</year>
+        <fees>300</fees>
+    </course>
+    <course>
+        <category>Data Science</category>
+        <title>Data Analysis with R</title>
+        <trainer>Jane Smith</trainer>
+        <year>2022</year>
+        <fees>400</fees>
+    </course>
+    <course>
+        <category>Web Development</category>
+        <title>Full-Stack JavaScript</title>
+        <trainer>Emily White</trainer>
+        <year>2023</year>
+        <fees>500</fees>
+    </course>
+</courses>

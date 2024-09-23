@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <textarea placeholder="Enter text here..."></textarea>
+    <textarea placeholder="Another textarea..."></textarea>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <button id="applyStyles">Apply Styles</button>
+
+
+    <!-- onclick to append paragraph -->
+    <h1>Welcome to My Page</h1>
+    <button id="addParagraph">Add Paragraph</button>
+
+
+
+    <!-- html tag basics class file adding -->
+    <h1>Welcome to My Page</h1>
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+    <p>This is the last paragraph.</p>
+    <button id="addClass">Add Class to Last Paragraph</button>
+
+
+    <!-- get element using jquery  -->
+    <h1>Get a Single Element</h1>
+    <div class="box_ele">Box 1</div>
+    <div class="box_ele">Box 2</div>
+    <div class="box_ele">Box 3</div>
+    <button id="getFirst">Get First Box</button>
+    <button id="getLast">Get Last Box</button>
+    <button id="getSecond">Get Second Box</button>
+
+
+    <!-- multiple or single choice questions -->
+    <h1>Checked and Selected Elements</h1>
+    
+    <h3>Checkboxes</h3>
+    <label><input type="checkbox" class="myCheckbox" value="Checkbox 1"> Checkbox 1</label><br>
+    <label><input type="checkbox" class="myCheckbox" value="Checkbox 2" checked> Checkbox 2</label><br>
+    <label><input type="checkbox" class="myCheckbox" value="Checkbox 3"> Checkbox 3</label><br>
+    
+    <h3>Radio Buttons</h3>
+    <label><input type="radio" name="myRadio" class="myRadio" value="Radio 1"> Radio 1</label><br>
+    <label><input type="radio" name="myRadio" class="myRadio" value="Radio 2" checked> Radio 2</label><br>
+    
+    <h3>Select Options</h3>
+    <select id="mySelect">
+        <option value="Option 1">Option 1</option>
+        <option value="Option 2" selected>Option 2</option>
+        <option value="Option 3">Option 3</option>
+    </select>
+    
+    <button id="findChecked">Find Checked/Selected</button>
+
+    <script>
+        $(document).ready(function() {
+            // Find all textareas and set a border
+            $('textarea').css('border', '2px solid black');
+
+            // Find all paragraphs and set their border color to red
+            $('p').css({
+                'border': '1px solid red',
+                'padding': '5px' // Optional: add padding for better appearance
+            });
+
+
+
+            // append paragraph
+            $('#addParagraph').click(function() {
+                // Create a new paragraph element with text
+                var newParagraph = $('<p>This is a newly added paragraph.</p>');
+                
+                // Append the new paragraph to the body
+                $('body').append(newParagraph);
+            });
+
+
+
+
+            // html tag add class name in last tag onclick method
+            $('#addClass').click(function() {
+                // Add class to the last paragraph element
+                $('p:last').addClass('w3r_font_color');
+            });
+
+
+
+            // get elements 
+            $('#getFirst').click(function() {
+                var firstBox = $('.box_ele').first(); // Get the first element
+                alert('First Box: ' + firstBox.text());
+            });
+
+            $('#getLast').click(function() {
+                var lastBox = $('.box_ele').last(); // Get the last element
+                alert('Last Box: ' + lastBox.text());
+            });
+
+            $('#getSecond').click(function() {
+                var secondBox = $('.box_ele').eq(1); // Get the second element (index 1)
+                alert('Second Box: ' + secondBox.text());
+            });
+
+
+
+
+
+            // multiple or single choice questions
+            $('#findChecked').click(function() {
+                // Find checked checkboxes and radio buttons
+                var checkedBoxes = $('.myCheckbox:checked').map(function() {
+                    return this.value;
+                }).get();
+
+                var selectedRadio = $('.myRadio:checked').map(function() {
+                    return this.value;
+                }).get();
+
+                // Find selected options
+                var selectedOptions = $('#mySelect option:selected').map(function() {
+                    return this.value;
+                }).get();
+
+                // Display results
+                alert('Checked Checkboxes: ' + checkedBoxes.join(', ') +
+                      '\nSelected Radio: ' + selectedRadio.join(', ') +
+                      '\nSelected Option: ' + selectedOptions.join(', '));
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- dynamic div element adding task -->
+ <!--  -->

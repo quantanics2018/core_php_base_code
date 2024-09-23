@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Index to List Items</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+         #myBox {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+        }
+
+        /* set timeout */
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My List</h1>
+    <ul id="myList">
+        <li>Item One</li>
+        <li>Item Two</li>
+        <li>Item Three</li>
+        <li>Item Four</li>
+    </ul>
+    <button id="addIndex">Add Index</button>
+
+
+
+    <!-- hyper link change to text -->
+    <h1>My Links</h1>
+    <a href="https://example.com" id="myLink">Visit Example.com</a>
+    <button id="changeLink">Change Link</button>
+
+
+    <!-- animate box -->
+    <h1>Animate Box</h1>
+    <div id="myBox"></div>
+    <button id="animateButton">Animate Box</button>
+
+
+
+    <!-- set timeout -->
+    <h1>Delay Animation with setTimeout</h1>
+    <div id="box"></div>
+    <button id="startAnimation">Start Animation</button>
+
+
+    <!-- fade in fade out function -->
+    <h1>Fade In and Fade Out Demo</h1>
+    <div class="box">fade in fade out example1</div>
+    <div class="box">fade in fade out example2</div>
+    <div class="box">fade in fade out example3</div>
+    <button id="fadeInButton">Fade In All Divs</button>
+    <button id="fadeOutButton">Fade Out All Divs</button>
+
+
+    <script>
+        $(document).ready(function() {
+            $('#addIndex').click(function() {
+                // Loop through each list item
+                $('#myList li').each(function(index) {
+                    // Prepend a <b> tag with the index to the list item
+                    $(this).prepend('<b>' + index + ': </b>');
+                });
+            });
+
+
+
+            // hyper link change text
+            $('#changeLink').click(function() {
+                // Change the hyperlink and text of the existing link
+                $('#myLink').attr('href', 'https://google.com')
+                            .text('Visit OpenAI.com');
+            });
+
+
+
+            $('#animateButton').click(function() {
+                // Animate the box by changing its width and height
+                $('#myBox').animate({
+                    width: '200px',
+                    height: '200px'
+                }, 1000); // Duration in milliseconds
+            });
+
+
+
+            // set timeout function
+            $('#startAnimation').click(function() {
+                // First animation
+                $('#box').animate({
+                    width: '200px',
+                    height: '200px'
+                }, 1000);
+
+                // Delay the next animation using setTimeout
+                setTimeout(function() {
+                    $('#box').animate({
+                        width: '100px',
+                        height: '100px'
+                    }, 1000);
+                }, 1500); // Delay of 1500 milliseconds (1.5 seconds)
+            });
+
+
+            // fade int fade out function
+            $('#fadeInButton').click(function() {
+                $('.box').fadeIn(1000); // Fade in all divs over 1 second
+            });
+
+            $('#fadeOutButton').click(function() {
+                $('.box').fadeOut(1000); // Fade out all divs over 1 second
+            });
+
+
+
+        });
+    </script>
+</body>
+</html>

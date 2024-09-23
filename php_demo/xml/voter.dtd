@@ -1,0 +1,6 @@
+<!ELEMENT voters (voter+)>
+<!ELEMENT voter (voterID, name, address, dateOfBirth)>
+<!ELEMENT voterID (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT dateOfBirth (#PCDATA)>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+        <name>Product A</name>
+        <price>25.99</price>
+        <description>This is an amazing product A.</description>
+    </product>
+    <product>
+        <name>Product B</name>
+        <price>35.50</price>
+        <description>This is a fantastic product B.</description>
+    </product>
+    <product>
+        <name>Product C</name>
+        <price>15.75</price>
+        <description>This is a great product C.</description>
+    </product>
+</products>

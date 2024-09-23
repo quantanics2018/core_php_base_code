@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery List Manipulation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        li {
+            cursor: pointer;
+            padding: 8px;
+            list-style-type: none;
+            background-color: green; /* Default background color */
+            margin-bottom: 5px;
+        }
+        ul {
+            padding-left: 0;
+        }
+
+
+
+        /* hide and show */
+        .hidden {
+            display: none;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="addItem">Add List Item</button>
+    <ul id="myList"></ul>
+
+
+
+
+
+    <!-- hide and show actions -->
+    <h1 id="header">Welcome to jQuery Demo</h1>
+
+    <p class="intro">This is an introduction paragraph that can be hidden.</p>
+    <p class="intro">Another paragraph with the same class.</p>
+
+    <button id="hideButton">Hide Intro</button>
+    <button id="showButton">Show Intro</button>
+    <button id="highlightButton">Highlight Paragraphs</button>
+    <button id="removeHighlightButton">Remove Highlight</button>
+
+    <script>
+        $(document).ready(function () {
+            let count = 0;
+
+            // Event handler for the button to add a new list item
+            $('#addItem').click(function () {
+                count++;
+                $('#myList').append(`<li>Item ${count}</li>`);
+            });
+
+            // Event delegation for toggling background color on <li> click
+            $('#myList').on('click', 'li', function () {
+                // Toggle the background color between red and green
+                $(this).css('background-color', function (_, currentColor) {
+                    return currentColor === 'rgb(0, 128, 0)' ? 'red' : 'green'; // RGB values for green
+                });
+            });
+
+
+
+
+
+
+            // hide and show actions
+
+
+            // Select an element by its ID and hide it
+            $('#hideButton').click(function () {
+                $('.intro').hide(); 
+            });
+
+            // Select an element by its ID and show it
+            $('#showButton').click(function () {
+                $('.intro').show(); 
+            });
+
+            // Add a class to elements selected by their tag name
+            $('#highlightButton').click(function () {
+                $('p').addClass('highlight'); 
+            });
+
+            // Remove a class from elements selected by their tag name
+            $('#removeHighlightButton').click(function () {
+                $('p').removeClass('highlight'); 
+            });
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>
